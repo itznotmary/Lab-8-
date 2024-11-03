@@ -1,0 +1,111 @@
+def get_initials(full_name):
+    names = full_name.split()
+    initials = [name[0].upper() + '.' for name in names]
+    return ' '.join(initials)
+full_name = input()
+initials = get_initials(full_name)
+print(initials)
+
+
+
+def sum_of_digits(digit_string):
+    total = sum(int(digit) for digit in digit_string)
+    return total
+digit_string = input()
+result = sum_of_digits(digit_string)
+print(result)
+
+
+
+def convert_date(date_str):
+    months = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"]
+    month, day, year = date_str.split('/')
+    month_name = months[int(month) - 1]
+    return f"{month_name} {int(day)}, {year}"
+date_str = input()
+formatted_date = convert_date(date_str)
+print(formatted_date)
+
+
+
+morse_code_dict = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
+    'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
+    'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+    'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+    '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ', ': '--..--', '.': '.-.-.-',
+    '?': '..--..', '/': '-..-.', '-': '-....-', '(': '-.--.', ')': '-.--.-', ' ': ' '}
+def text_to_morse(text):
+    morse_text = ''
+    for char in text.upper():
+        morse_text += morse_code_dict.get(char, '') + ' '
+    return morse_text.strip()
+text = input()
+morse_text = text_to_morse(text)
+print(morse_text)
+
+
+
+def translate_to_number(phone_number):
+    translation = {
+        'A': '2', 'B': '2', 'C': '2',
+        'D': '3', 'E': '3', 'F': '3',
+        'G': '4', 'H': '4', 'I': '4',
+        'J': '5', 'K': '5', 'L': '5',
+        'M': '6', 'N': '6', 'O': '6',
+        'P': '7', 'Q': '7', 'R': '7', 'S': '7',
+        'T': '8', 'U': '8', 'V': '8',
+        'W': '9', 'X': '9', 'Y': '9', 'Z': '9'}
+    numeric_phone_number = ""
+    for char in phone_number:
+        if char.isalpha():
+            numeric_phone_number += translation[char.upper()]
+        else:
+            numeric_phone_number += char
+    return numeric_phone_number
+phone_number = input()
+numeric_phone_number = translate_to_number(phone_number)
+print(numeric_phone_number)
+
+
+
+def capitalize_sentences(text):
+    sentences = text.split('. ')
+    capitalized_sentences = '. '.join(sentence.capitalize() for sentence in sentences)
+    return capitalized_sentences
+text = input()
+modified_text = capitalize_sentences(text)
+print(modified_text)
+def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in text if char in vowels)
+def count_consonants(text):
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in text if char.isalpha() and char not in vowels)
+text = input("Enter a string: ")
+num_vowels = count_vowels(text)
+num_consonants = count_consonants(text)
+print(f"Number of vowels: {num_vowels}")
+print(f"Number of consonants: {num_consonants}")
+
+
+
+def most_frequent_char(text):
+    frequency = {}
+    for char in text:
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
+    most_frequent = max(frequency, key=frequency.get)
+    return most_frequent
+text = input()
+result = most_frequent_char(text)
+print(result)
+
+
+
+
+
+
